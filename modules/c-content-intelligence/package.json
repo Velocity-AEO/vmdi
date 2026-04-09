@@ -8,8 +8,9 @@
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "calibrate": "tsx calibration/run-calibration.ts",
-    "test:nlp": "tsx nlp/run-integration-test.ts"
+    "calibrate": "tsx calibration/run-calibration.ts && tsx calibration/assert-accuracy.ts",
+    "test:nlp": "tsx nlp/run-integration-test.ts",
+    "test:e2e": "tsx e2e-test.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",

@@ -66,3 +66,27 @@ jobs:
         working-directory: modules/d-data-scoring
       - run: npx tsc --noEmit
         working-directory: modules/d-data-scoring
+
+  calibrate:
+    name: Calibrate AI Detector
+    runs-on: ubuntu-latest
+    needs: [typecheck-content-intelligence]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: modules/c-content-intelligence/package-lock.json
+      - run: npm install
+        working-directory: modules/c-content-intelligence
+      - name: Run calibration
+        run: npm run calibrate
+        working-directory: modules/c-content-intelligence
+      - name: Upload calibration report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: calibration-report
+          path: modules/c-content-intelligence/calibration/reports/
+          retention-days: 30
