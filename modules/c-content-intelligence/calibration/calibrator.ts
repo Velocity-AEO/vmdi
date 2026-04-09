@@ -34,7 +34,7 @@ export interface SampleDetail {
   signals: string[];
 }
 
-const CURRENT_THRESHOLD = 0.35;
+const CURRENT_THRESHOLD = 0.28;
 
 export async function runCalibration(): Promise<CalibrationReport> {
   const allSamples: CorpusSample[] = [...HUMAN_SAMPLES, ...AI_SAMPLES];

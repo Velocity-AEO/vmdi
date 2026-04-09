@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { api } from "@/lib/api";
 import type { Asset, AssetEvent } from "@/lib/types";
 import { StatusBadge } from "@/components/ui/StatusBadge";
@@ -32,6 +32,7 @@ function AiScoreBadge({ score }: { score: number }) {
 
 export default function ArticleDetailPage() {
   const params = useParams();
+  const router = useRouter();
   const id = params.id as string;
   const [asset, setAsset] = useState<Asset | null>(null);
   const [events, setEvents] = useState<AssetEvent[]>([]);
@@ -80,6 +81,12 @@ export default function ArticleDetailPage() {
           </div>
         </div>
         <div className="flex gap-2">
+          <button
+            onClick={() => router.push(`/articles/${id}/edit`)}
+            className="rounded-md bg-primary/20 px-4 py-2 text-sm font-medium text-primary hover:bg-primary/30 transition-colors"
+          >
+            Edit in AI Editor
+          </button>
           {asset.status === "draft" && (
             <button
               onClick={() => handleStatusChange("awaiting_approval")}

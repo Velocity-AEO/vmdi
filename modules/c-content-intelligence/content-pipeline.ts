@@ -73,7 +73,8 @@ export async function runContentPipeline(
         aiDetectionScore: rewrite.finalScore,
         aiDetectionSignals,
         issues: [
-          `failed_ai_detection: Content scored ${rewrite.finalScore} after ${rewrite.attempts} rewrite attempts (threshold: 0.35)`,
+          // Threshold calibrated — see calibration/reports/
+          `failed_ai_detection: Content scored ${rewrite.finalScore} after ${rewrite.attempts} rewrite attempts (threshold: 0.28)`,
           ...rewrite.history.map(
             (h) => `Attempt ${h.attempt}: score ${h.score}, signals: ${h.signals.join(", ")}`
           ),

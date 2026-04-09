@@ -61,4 +61,32 @@ export const api = {
     request<{ data: import("./types").AssetEvent[] }>(
       `/api/events?asset_id=${assetId}`
     ),
+
+  // Plans
+  getPlans: (params?: Record<string, string>) => {
+    const qs = params ? "?" + new URLSearchParams(params).toString() : "";
+    return request<{ data: import("./types").ContentPlan[] }>(
+      `/api/plans${qs}`
+    );
+  },
+  getPlan: (id: string) =>
+    request<{ data: import("./types").ContentPlan }>(`/api/plans/${id}`),
+  generatePlan: (body: { tenantId: string; month: string }) =>
+    request<{ data: import("./types").ContentPlan }>("/api/plans", {
+      method: "POST",
+      body: JSON.stringify(body),
+    }),
+  executePlanItem: (planId: string, body: { planItemIndex: number; authorId: string }) =>
+    request<{ data: { assetId: string; title: string; body: string; keyword: string } }>(
+      `/api/plans/${planId}/execute`,
+      { method: "POST", body: JSON.stringify(body) }
+    ),
+
+  // Briefs
+  getBriefs: (params?: Record<string, string>) => {
+    const qs = params ? "?" + new URLSearchParams(params).toString() : "";
+    return request<{ data: import("./types").ContentBrief[] }>(
+      `/api/briefs${qs}`
+    );
+  },
 };

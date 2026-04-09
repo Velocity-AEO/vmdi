@@ -47,3 +47,14 @@ export {
   type CorpusSample,
   type WeightMap,
 } from "./calibration/index.js";
+export {
+  analyzeContentGaps,
+  generateContentBrief,
+  generateMonthlyPlan,
+  executePlanItem,
+  type ContentGap,
+  type ContentBrief,
+  type PlanItem,
+  type MonthlyPlan,
+  type ExecutePlanItemResult,
+} from "./planner/index.js";

@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 const NAV_ITEMS = [
   { href: "/", label: "Dashboard", icon: "grid" },
   { href: "/articles", label: "Articles", icon: "file-text" },
+  { href: "/plans", label: "Plans", icon: "calendar" },
   { href: "/keywords", label: "Keywords", icon: "key" },
   { href: "/authors", label: "Authors", icon: "users" },
   { href: "/events", label: "Events", icon: "activity" },
@@ -13,6 +14,7 @@ const NAV_ITEMS = [
 
 const ICONS: Record<string, string> = {
   grid: "M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z",
+  calendar: "M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z",
   "file-text":
     "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6ZM14 2v6h6M16 13H8M16 17H8M10 9H8",
   key: "M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.78 7.78 5.5 5.5 0 0 1 7.78-7.78Zm0 0L15.5 7.5m0 0 3 3L22 7l-3-3m-3.5 3.5L19 4",

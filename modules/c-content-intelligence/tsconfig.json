@@ -11,6 +11,6 @@
     "declaration": true,
     "skipLibCheck": true
   },
-  "include": ["*.ts", "nlp/**/*.ts", "calibration/**/*.ts"],
+  "include": ["*.ts", "nlp/**/*.ts", "calibration/**/*.ts", "planner/**/*.ts"],
   "exclude": ["dist", "node_modules"]
 }

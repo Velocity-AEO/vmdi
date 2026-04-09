@@ -55,6 +55,49 @@ export interface AssetEvent {
   created_at: string;
 }
 
+export interface PlanItem {
+  week: number;
+  keyword: string;
+  title: string;
+  angle: string;
+  targetAudience: string;
+  wordCountTarget: number;
+  tone: string;
+  suggestedH2s: string[];
+  mustInclude: string[];
+  mustAvoid: string[];
+  estimatedImpact: "high" | "medium" | "low";
+  reasoning: string;
+}
+
+export interface ContentPlan {
+  plan_id: string;
+  tenant_id: string;
+  month: string;
+  plan_data: { items: PlanItem[]; summary: string };
+  generated_at: string;
+}
+
+export interface ContentBrief {
+  brief_id: string;
+  tenant_id: string;
+  plan_id: string | null;
+  asset_id: string | null;
+  keyword: string;
+  title: string | null;
+  angle: string | null;
+  target_audience: string | null;
+  word_count_target: number | null;
+  tone: string | null;
+  suggested_h2s: string[];
+  must_include: string[];
+  must_avoid: string[];
+  estimated_impact: string | null;
+  reasoning: string | null;
+  status: string;
+  created_at: string;
+}
+
 export interface PaginatedResponse<T> {
   data: T[];
   total: number;

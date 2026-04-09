@@ -1,0 +1,560 @@
+{
+  "totalSamples": 30,
+  "correctHuman": 14,
+  "correctAI": 15,
+  "falsePositives": 1,
+  "falseNegatives": 0,
+  "accuracy": 0.9666666666666667,
+  "humanAccuracy": 0.9333333333333333,
+  "aiAccuracy": 1,
+  "signalEffectiveness": [
+    {
+      "signalType": "transition_phrase_overuse",
+      "triggeredCount": 6,
+      "correctWhenTriggered": 6,
+      "effectiveness": 1,
+      "falsePositiveCount": 0
+    },
+    {
+      "signalType": "paragraph_uniformity",
+      "triggeredCount": 6,
+      "correctWhenTriggered": 6,
+      "effectiveness": 1,
+      "falsePositiveCount": 0
+    },
+    {
+      "signalType": "no_first_person",
+      "triggeredCount": 15,
+      "correctWhenTriggered": 15,
+      "effectiveness": 1,
+      "falsePositiveCount": 0
+    },
+    {
+      "signalType": "perfect_grammar",
+      "triggeredCount": 9,
+      "correctWhenTriggered": 9,
+      "effectiveness": 1,
+      "falsePositiveCount": 0
+    },
+    {
+      "signalType": "overly_formal_vocabulary",
+      "triggeredCount": 12,
+      "correctWhenTriggered": 12,
+      "effectiveness": 1,
+      "falsePositiveCount": 0
+    },
+    {
+      "signalType": "no_specifics",
+      "triggeredCount": 7,
+      "correctWhenTriggered": 7,
+      "effectiveness": 1,
+      "falsePositiveCount": 0
+    },
+    {
+      "signalType": "hedging_language",
+      "triggeredCount": 1,
+      "correctWhenTriggered": 1,
+      "effectiveness": 1,
+      "falsePositiveCount": 0
+    },
+    {
+      "signalType": "excessive_passive_voice",
+      "triggeredCount": 11,
+      "correctWhenTriggered": 11,
+      "effectiveness": 1,
+      "falsePositiveCount": 0
+    },
+    {
+      "signalType": "zero_contractions",
+      "triggeredCount": 11,
+      "correctWhenTriggered": 11,
+      "effectiveness": 1,
+      "falsePositiveCount": 0
+    },
+    {
+      "signalType": "list_over_reliance",
+      "triggeredCount": 2,
+      "correctWhenTriggered": 2,
+      "effectiveness": 1,
+      "falsePositiveCount": 0
+    },
+    {
+      "signalType": "generic_opener",
+      "triggeredCount": 11,
+      "correctWhenTriggered": 10,
+      "effectiveness": 0.9090909090909091,
+      "falsePositiveCount": 1
+    },
+    {
+      "signalType": "keyword_stuffing",
+      "triggeredCount": 19,
+      "correctWhenTriggered": 14,
+      "effectiveness": 0.7368421052631579,
+      "falsePositiveCount": 5
+    },
+    {
+      "signalType": "low_sentence_variance",
+      "triggeredCount": 27,
+      "correctWhenTriggered": 14,
+      "effectiveness": 0.5185185185185185,
+      "falsePositiveCount": 13
+    },
+    {
+      "signalType": "em_dash_overuse",
+      "triggeredCount": 14,
+      "correctWhenTriggered": 0,
+      "effectiveness": 0,
+      "falsePositiveCount": 14
+    }
+  ],
+  "recommendations": [
+    "Adjust threshold from 0.35 to 0.25 — this maximizes accuracy across the calibration corpus.",
+    "Reduce weight for signals that false-alarm on human content: em_dash_overuse (14 false positives), low_sentence_variance (13 false positives), keyword_stuffing (5 false positives), generic_opener (1 false positives).",
+    "Low-effectiveness signals (below 50% correct when triggered): em_dash_overuse (0%). Consider reducing their weights.",
+    "High-accuracy signals (100% correct when triggered): transition_phrase_overuse (6 triggers), paragraph_uniformity (6 triggers), no_first_person (15 triggers), perfect_grammar (9 triggers), overly_formal_vocabulary (12 triggers), no_specifics (7 triggers), excessive_passive_voice (11 triggers), zero_contractions (11 triggers). Consider increasing their weights.",
+    "Score distribution — human avg: 0.203, AI avg: 0.793, gap: 0.590."
+  ],
+  "threshold": 0.35,
+  "suggestedThreshold": 0.25,
+  "details": [
+    {
+      "id": "human-01",
+      "expectedVerdict": "human",
+      "actualVerdict": "likely_human",
+      "score": 0.2,
+      "correct": true,
+      "signals": [
+        "low_sentence_variance",
+        "em_dash_overuse"
+      ]
+    },
+    {
+      "id": "human-02",
+      "expectedVerdict": "human",
+      "actualVerdict": "likely_human",
+      "score": 0.2,
+      "correct": true,
+      "signals": [
+        "low_sentence_variance",
+        "em_dash_overuse"
+      ]
+    },
+    {
+      "id": "human-03",
+      "expectedVerdict": "human",
+      "actualVerdict": "likely_human",
+      "score": 0.2,
+      "correct": true,
+      "signals": [
+        "low_sentence_variance",
+        "em_dash_overuse"
+      ]
+    },
+    {
+      "id": "human-04",
+      "expectedVerdict": "human",
+      "actualVerdict": "human",
+      "score": 0.05,
+      "correct": true,
+      "signals": [
+        "em_dash_overuse"
+      ]
+    },
+    {
+      "id": "human-05",
+      "expectedVerdict": "human",
+      "actualVerdict": "likely_human",
+      "score": 0.2,
+      "correct": true,
+      "signals": [
+        "low_sentence_variance",
+        "em_dash_overuse"
+      ]
+    },
+    {
+      "id": "human-06",
+      "expectedVerdict": "human",
+      "actualVerdict": "likely_human",
+      "score": 0.25,
+      "correct": true,
+      "signals": [
+        "low_sentence_variance",
+        "keyword_stuffing",
+        "em_dash_overuse"
+      ]
+    },
+    {
+      "id": "human-07",
+      "expectedVerdict": "human",
+      "actualVerdict": "likely_human",
+      "score": 0.2,
+      "correct": true,
+      "signals": [
+        "low_sentence_variance",
+        "em_dash_overuse"
+      ]
+    },
+    {
+      "id": "human-08",
+      "expectedVerdict": "human",
+      "actualVerdict": "human",
+      "score": 0.05,
+      "correct": true,
+      "signals": [
+        "em_dash_overuse"
+      ]
+    },
+    {
+      "id": "human-09",
+      "expectedVerdict": "human",
+      "actualVerdict": "likely_human",
+      "score": 0.25,
+      "correct": true,
+      "signals": [
+        "low_sentence_variance",
+        "keyword_stuffing",
+        "em_dash_overuse"
+      ]
+    },
+    {
+      "id": "human-10",
+      "expectedVerdict": "human",
+      "actualVerdict": "likely_human",
+      "score": 0.2,
+      "correct": true,
+      "signals": [
+        "low_sentence_variance",
+        "em_dash_overuse"
+      ]
+    },
+    {
+      "id": "human-11",
+      "expectedVerdict": "human",
+      "actualVerdict": "likely_human",
+      "score": 0.2,
+      "correct": true,
+      "signals": [
+        "low_sentence_variance",
+        "keyword_stuffing"
+      ]
+    },
+    {
+      "id": "human-12",
+      "expectedVerdict": "human",
+      "actualVerdict": "likely_human",
+      "score": 0.25,
+      "correct": true,
+      "signals": [
+        "low_sentence_variance",
+        "keyword_stuffing",
+        "em_dash_overuse"
+      ]
+    },
+    {
+      "id": "human-13",
+      "expectedVerdict": "human",
+      "actualVerdict": "likely_human",
+      "score": 0.2,
+      "correct": true,
+      "signals": [
+        "low_sentence_variance",
+        "em_dash_overuse"
+      ]
+    },
+    {
+      "id": "human-14",
+      "expectedVerdict": "human",
+      "actualVerdict": "likely_human",
+      "score": 0.35,
+      "correct": false,
+      "signals": [
+        "low_sentence_variance",
+        "generic_opener",
+        "em_dash_overuse"
+      ]
+    },
+    {
+      "id": "human-15",
+      "expectedVerdict": "human",
+      "actualVerdict": "likely_human",
+      "score": 0.25,
+      "correct": true,
+      "signals": [
+        "low_sentence_variance",
+        "keyword_stuffing",
+        "em_dash_overuse"
+      ]
+    },
+    {
+      "id": "ai-01",
+      "expectedVerdict": "ai",
+      "actualVerdict": "ai",
+      "score": 0.95,
+      "correct": true,
+      "signals": [
+        "transition_phrase_overuse",
+        "paragraph_uniformity",
+        "low_sentence_variance",
+        "generic_opener",
+        "no_first_person",
+        "perfect_grammar",
+        "keyword_stuffing",
+        "overly_formal_vocabulary",
+        "no_specifics"
+      ]
+    },
+    {
+      "id": "ai-02",
+      "expectedVerdict": "ai",
+      "actualVerdict": "ai",
+      "score": 1,
+      "correct": true,
+      "signals": [
+        "paragraph_uniformity",
+        "low_sentence_variance",
+        "generic_opener",
+        "hedging_language",
+        "excessive_passive_voice",
+        "no_first_person",
+        "zero_contractions",
+        "perfect_grammar",
+        "keyword_stuffing",
+        "overly_formal_vocabulary",
+        "no_specifics"
+      ]
+    },
+    {
+      "id": "ai-03",
+      "expectedVerdict": "ai",
+      "actualVerdict": "ai",
+      "score": 1,
+      "correct": true,
+      "signals": [
+        "transition_phrase_overuse",
+        "paragraph_uniformity",
+        "low_sentence_variance",
+        "generic_opener",
+        "no_first_person",
+        "zero_contractions",
+        "perfect_grammar",
+        "keyword_stuffing",
+        "overly_formal_vocabulary",
+        "no_specifics"
+      ]
+    },
+    {
+      "id": "ai-04",
+      "expectedVerdict": "ai",
+      "actualVerdict": "ai",
+      "score": 0.65,
+      "correct": true,
+      "signals": [
+        "low_sentence_variance",
+        "list_over_reliance",
+        "excessive_passive_voice",
+        "no_first_person",
+        "zero_contractions",
+        "keyword_stuffing"
+      ]
+    },
+    {
+      "id": "ai-05",
+      "expectedVerdict": "ai",
+      "actualVerdict": "likely_ai",
+      "score": 0.55,
+      "correct": true,
+      "signals": [
+        "low_sentence_variance",
+        "excessive_passive_voice",
+        "no_first_person",
+        "zero_contractions",
+        "keyword_stuffing",
+        "overly_formal_vocabulary"
+      ]
+    },
+    {
+      "id": "ai-06",
+      "expectedVerdict": "ai",
+      "actualVerdict": "ai",
+      "score": 0.95,
+      "correct": true,
+      "signals": [
+        "transition_phrase_overuse",
+        "paragraph_uniformity",
+        "low_sentence_variance",
+        "generic_opener",
+        "no_first_person",
+        "perfect_grammar",
+        "keyword_stuffing",
+        "overly_formal_vocabulary",
+        "no_specifics"
+      ]
+    },
+    {
+      "id": "ai-07",
+      "expectedVerdict": "ai",
+      "actualVerdict": "likely_human",
+      "score": 0.35,
+      "correct": true,
+      "signals": [
+        "low_sentence_variance",
+        "no_first_person",
+        "keyword_stuffing",
+        "overly_formal_vocabulary"
+      ]
+    },
+    {
+      "id": "ai-08",
+      "expectedVerdict": "ai",
+      "actualVerdict": "ai",
+      "score": 0.7,
+      "correct": true,
+      "signals": [
+        "low_sentence_variance",
+        "generic_opener",
+        "excessive_passive_voice",
+        "no_first_person",
+        "zero_contractions",
+        "keyword_stuffing",
+        "overly_formal_vocabulary"
+      ]
+    },
+    {
+      "id": "ai-09",
+      "expectedVerdict": "ai",
+      "actualVerdict": "ai",
+      "score": 0.95,
+      "correct": true,
+      "signals": [
+        "paragraph_uniformity",
+        "low_sentence_variance",
+        "generic_opener",
+        "excessive_passive_voice",
+        "no_first_person",
+        "zero_contractions",
+        "perfect_grammar",
+        "keyword_stuffing",
+        "no_specifics"
+      ]
+    },
+    {
+      "id": "ai-10",
+      "expectedVerdict": "ai",
+      "actualVerdict": "ai",
+      "score": 0.8,
+      "correct": true,
+      "signals": [
+        "paragraph_uniformity",
+        "low_sentence_variance",
+        "excessive_passive_voice",
+        "no_first_person",
+        "zero_contractions",
+        "perfect_grammar",
+        "keyword_stuffing",
+        "overly_formal_vocabulary"
+      ]
+    },
+    {
+      "id": "ai-11",
+      "expectedVerdict": "ai",
+      "actualVerdict": "ai",
+      "score": 0.9,
+      "correct": true,
+      "signals": [
+        "transition_phrase_overuse",
+        "list_over_reliance",
+        "generic_opener",
+        "excessive_passive_voice",
+        "no_first_person",
+        "zero_contractions",
+        "perfect_grammar",
+        "keyword_stuffing"
+      ]
+    },
+    {
+      "id": "ai-12",
+      "expectedVerdict": "ai",
+      "actualVerdict": "likely_ai",
+      "score": 0.5,
+      "correct": true,
+      "signals": [
+        "low_sentence_variance",
+        "excessive_passive_voice",
+        "no_first_person",
+        "keyword_stuffing",
+        "overly_formal_vocabulary",
+        "no_specifics"
+      ]
+    },
+    {
+      "id": "ai-13",
+      "expectedVerdict": "ai",
+      "actualVerdict": "ai",
+      "score": 0.95,
+      "correct": true,
+      "signals": [
+        "transition_phrase_overuse",
+        "low_sentence_variance",
+        "generic_opener",
+        "excessive_passive_voice",
+        "no_first_person",
+        "zero_contractions",
+        "perfect_grammar",
+        "keyword_stuffing",
+        "overly_formal_vocabulary"
+      ]
+    },
+    {
+      "id": "ai-14",
+      "expectedVerdict": "ai",
+      "actualVerdict": "ai",
+      "score": 0.75,
+      "correct": true,
+      "signals": [
+        "low_sentence_variance",
+        "generic_opener",
+        "excessive_passive_voice",
+        "no_first_person",
+        "zero_contractions",
+        "keyword_stuffing",
+        "overly_formal_vocabulary",
+        "no_specifics"
+      ]
+    },
+    {
+      "id": "ai-15",
+      "expectedVerdict": "ai",
+      "actualVerdict": "ai",
+      "score": 0.9,
+      "correct": true,
+      "signals": [
+        "transition_phrase_overuse",
+        "low_sentence_variance",
+        "generic_opener",
+        "excessive_passive_voice",
+        "no_first_person",
+        "zero_contractions",
+        "perfect_grammar",
+        "overly_formal_vocabulary"
+      ]
+    }
+  ],
+  "optimizedWeights": {
+    "transition_phrase_overuse": 0.165,
+    "paragraph_uniformity": 0.165,
+    "low_sentence_variance": 0.09,
+    "list_over_reliance": 0.165,
+    "generic_opener": 0.15,
+    "hedging_language": 0.11,
+    "excessive_passive_voice": 0.11,
+    "no_first_person": 0.11,
+    "zero_contractions": 0.11,
+    "perfect_grammar": 0.11,
+    "keyword_stuffing": 0.03,
+    "overly_formal_vocabulary": 0.055,
+    "no_specifics": 0.055,
+    "em_dash_overuse": 0.03,
+    "rhetorical_question_overuse": 0.05
+  },
+  "generatedAt": "2026-04-09T06:34:54.437Z"
+}

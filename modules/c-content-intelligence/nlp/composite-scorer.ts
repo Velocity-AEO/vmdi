@@ -1,5 +1,8 @@
 import type { GoogleNLPResult } from "./google-nlp-analyzer.js";
 
+// Threshold calibrated — see calibration/reports/
+const DETECTION_THRESHOLD = 0.28;
+
 export interface CompositeScore {
   finalScore: number;
   patternScore: number;
@@ -18,9 +21,9 @@ function clamp(value: number, min: number, max: number): number {
 function classify(score: number): {
   verdict: CompositeScore["verdict"];
 } {
-  if (score < 0.2) return { verdict: "human" };
-  if (score <= 0.35) return { verdict: "likely_human" };
-  if (score <= 0.6) return { verdict: "likely_ai" };
+  if (score < 0.15) return { verdict: "human" };
+  if (score <= DETECTION_THRESHOLD) return { verdict: "likely_human" };
+  if (score <= 0.55) return { verdict: "likely_ai" };
   return { verdict: "ai" };
 }
 
@@ -109,7 +112,7 @@ export function computeCompositeScore(
       nlpAvailable: false,
       verdict,
       confidence: patternScore < 0.2 || patternScore > 0.6 ? "high" : "medium",
-      passesThreshold: patternScore < 0.35,
+      passesThreshold: patternScore < DETECTION_THRESHOLD,
       reasoning,
     };
   }
@@ -128,8 +131,8 @@ export function computeCompositeScore(
   );
 
   const bothAgree =
-    (patternScore < 0.35 && nlpScore < 0.35) ||
-    (patternScore > 0.35 && nlpScore > 0.35);
+    (patternScore < DETECTION_THRESHOLD && nlpScore < DETECTION_THRESHOLD) ||
+    (patternScore > DETECTION_THRESHOLD && nlpScore > DETECTION_THRESHOLD);
 
   const confidence: CompositeScore["confidence"] = bothAgree
     ? "high"
@@ -154,7 +157,7 @@ export function computeCompositeScore(
     nlpAvailable: true,
     verdict,
     confidence,
-    passesThreshold: finalScore < 0.35,
+    passesThreshold: finalScore < DETECTION_THRESHOLD,
     reasoning,
   };
 }

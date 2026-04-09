@@ -8,13 +8,16 @@
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "calibrate": "node --loader ts-node/esm calibration/run-calibration.ts"
+    "calibrate": "tsx calibration/run-calibration.ts",
+    "test:nlp": "tsx nlp/run-integration-test.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
+    "@supabase/supabase-js": "^2.49.1",
     "typescript": "^5.7.0"
   },
   "devDependencies": {
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0"
   }
 }

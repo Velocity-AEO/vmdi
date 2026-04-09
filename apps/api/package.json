@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.1",
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@vmdi/content-intelligence": "file:../../modules/c-content-intelligence",
     "next": "^15.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

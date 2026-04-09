@@ -80,15 +80,6 @@ export interface Campaign {
   updated_at: string;
 }
 
-export type EventAction =
-  | "asset.created"
-  | "asset.updated"
-  | "asset.approved"
-  | "asset.published"
-  | "asset.rejected"
-  | "keyword.created"
-  | "author.created";
-
 export interface Event {
   id: string;
   tenant_id: string;
@@ -109,6 +100,46 @@ export interface Channel {
   created_at: string;
   updated_at: string;
 }
+
+export interface ContentPlan {
+  plan_id: string;
+  tenant_id: string;
+  month: string;
+  plan_data: Record<string, unknown>;
+  generated_at: string;
+}
+
+export interface ContentBrief {
+  brief_id: string;
+  tenant_id: string;
+  plan_id: string | null;
+  asset_id: string | null;
+  keyword: string;
+  title: string | null;
+  angle: string | null;
+  target_audience: string | null;
+  word_count_target: number | null;
+  tone: string | null;
+  suggested_h2s: string[];
+  must_include: string[];
+  must_avoid: string[];
+  estimated_impact: string | null;
+  reasoning: string | null;
+  status: string;
+  created_at: string;
+}
+
+export type EventAction =
+  | "asset.created"
+  | "asset.updated"
+  | "asset.approved"
+  | "asset.published"
+  | "asset.rejected"
+  | "keyword.created"
+  | "author.created"
+  | "plan.generated"
+  | "plan.item_executed"
+  | "brief.created";
 
 export interface ApiResponse<T = unknown> {
   data: T | null;
