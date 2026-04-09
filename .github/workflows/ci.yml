@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  typecheck-api:
+    name: Typecheck API
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: apps/api/package-lock.json
+      - run: npm install
+        working-directory: apps/api
+      - run: npx tsc --noEmit
+        working-directory: apps/api
+
+  typecheck-web:
+    name: Typecheck Web
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - run: npm install
+        working-directory: apps/web
+      - run: npx tsc --noEmit
+        working-directory: apps/web
+
+  typecheck-content-intelligence:
+    name: Typecheck Content Intelligence
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: modules/c-content-intelligence/package-lock.json
+      - run: npm install
+        working-directory: modules/c-content-intelligence
+      - run: npx tsc --noEmit
+        working-directory: modules/c-content-intelligence
+
+  typecheck-data-scoring:
+    name: Typecheck Data Scoring
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: modules/d-data-scoring/package-lock.json
+      - run: npm install
+        working-directory: modules/d-data-scoring
+      - run: npx tsc --noEmit
+        working-directory: modules/d-data-scoring

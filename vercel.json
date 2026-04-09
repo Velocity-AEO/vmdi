@@ -1,0 +1,6 @@
+{
+  "projects": [
+    { "src": "apps/web", "dest": "https://vmdi-web.vercel.app" },
+    { "src": "apps/api", "dest": "https://vmdi-api.vercel.app" }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@vmdi/content-intelligence",
+  "version": "0.1.0",
+  "private": true,
+  "description": "VMDI content intelligence engine — humanization, uniqueness checking, keyword enforcement, and schema generation",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "calibrate": "node --loader ts-node/esm calibration/run-calibration.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "typescript": "^5.7.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2"
+  }
+}

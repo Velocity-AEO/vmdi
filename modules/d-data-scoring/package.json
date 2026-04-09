@@ -1,0 +1,17 @@
+{
+  "name": "@vmdi/data-scoring",
+  "version": "0.1.0",
+  "private": true,
+  "description": "VMDI data scoring — performance tracking, content scoring, learning center, and digest generation",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@supabase/supabase-js": "^2.49.0",
+    "typescript": "^5.7.0"
+  }
+}

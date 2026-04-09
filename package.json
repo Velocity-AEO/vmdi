@@ -1,0 +1,17 @@
+{
+  "name": "vmdi",
+  "version": "0.1.0",
+  "private": true,
+  "description": "VMDI — Velocity Media Distribution Infrastructure",
+  "scripts": {
+    "dev:api": "cd apps/api && npm run dev",
+    "dev:web": "cd apps/web && npm run dev",
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:web\"",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "build:api": "cd apps/api && npm run build",
+    "build:web": "cd apps/web && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
